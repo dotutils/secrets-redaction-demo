@@ -8,6 +8,9 @@ on:
     branches:
       - main
 
+env:
+    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -20,8 +23,6 @@ jobs:
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 9.0.x
-    
-      - run: env
 
       - name: Build the app
         run: dotnet publish -bl
