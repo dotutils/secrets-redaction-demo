@@ -1,0 +1,5 @@
+root = true
+
+[*.csproj]
+build_check.BCC001.Severity=error
+build_check.BCC002.Severity=error
