@@ -28,7 +28,7 @@ jobs:
           dotnet-version: 9.0.x
 
       - name: Build the app
-        run: dotnet publish -bl
+        run: dotnet publish -check -bl
 
       - name: Upload binlog
         uses: actions/upload-artifact@v4
