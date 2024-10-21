@@ -44,7 +44,7 @@ jobs:
          echo "Installing Binlog redactor CLI..."
          dotnet new tool-manifest
          dotnet tool install binlogtool --local
-         dotnet binlogtool redact -p $GITHUB_TOKEN
+         dotnet binlogtool redact -p ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload redacted binlog
         uses: actions/upload-artifact@v4
