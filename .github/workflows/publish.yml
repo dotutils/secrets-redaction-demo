@@ -38,3 +38,19 @@ jobs:
           path: msbuild.binlog
           if-no-files-found: error
           overwrite: true
+
+      - name: Redact binlogs
+        run: |
+         echo "Installing Binlog redactor CLI..."
+         dotnet new tool-manifest
+         dotnet tool install binlogtool --local
+         dotnet binlogtool redact -p:$GITHUB_TOKEN
+
+      - name: Upload redacted binlog
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: logs
+          path: msbuild.redacted.binlog
+          if-no-files-found: error
+          overwrite: true
