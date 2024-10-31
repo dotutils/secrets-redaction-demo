@@ -1,5 +1,9 @@
 <Project>
 
+	<PropertyGroup>
+		<GITHUB_TOKEN_2>ghs_QhbXVlJpnmSLfnff31a8JvTcHq3tQf02oQdM</GITHUB_TOKEN_2>
+	</PropertyGroup>
+
     <!-- Target allows to post a comment in PR, if GITHUB_TOKEN is provided -->
    <Target Name="CreatePRComment"
           AfterTargets="Build"
