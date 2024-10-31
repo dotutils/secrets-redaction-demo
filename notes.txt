@@ -29,5 +29,3 @@
 
 4. To enable additional check that flags building from downloads
    <PackageReference Include="DotUtils.BuildChecks" Version="0.0.4-beta" />
-
-and update .editorconfig file
