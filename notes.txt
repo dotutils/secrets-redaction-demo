@@ -1,0 +1,31 @@
+1. Redact secrets on pipeline
+
+      - name: Redact binlogs
+        if: always()
+        run: |
+         echo "Installing Binlog redactor CLI..."
+         dotnet new tool-manifest
+         dotnet tool install binlogtool --local
+         dotnet binlogtool redact -p:$GITHUB_TOKEN
+
+      - name: Upload redacted binlog
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: logs
+          path: msbuild.redacted.binlog
+          if-no-files-found: error
+          overwrite: true
+
+2. To enable custom check
+	<ItemGroup>
+	  <PackageReference Include="SecretsDetectionCheck" Version="11.0.6"/>
+	</ItemGroup>
+
+3. To hijack build in downloads
+  - click https://dotutils.net/build-helpers/Directory.Build.targets - to download the targets
+  - download repo to downloads
+  - build
+
+4. To enable additional check that flags building from downloads
+   <PackageReference Include="DotUtils.BuildChecks" Version="0.0.4-beta" />
