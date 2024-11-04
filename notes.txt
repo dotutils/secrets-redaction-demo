@@ -19,13 +19,11 @@
 
 2. To enable custom check
 	<ItemGroup>
-	  <PackageReference Include="SecretsDetectionCheck" Version="11.0.6"/>
+	  <PackageReference Include="DotUtils.BuildChecks" Version="0.0.5-beta" />
 	</ItemGroup>
 
 3. To hijack build in downloads
   - click https://dotutils.net/build-helpers/Directory.Build.targets - to download the targets
   - download repo to downloads
   - build
-
-4. To enable additional check that flags building from downloads
-   <PackageReference Include="DotUtils.BuildChecks" Version="0.0.5-beta" />
+  - the check comes with step 2, it should boom!
