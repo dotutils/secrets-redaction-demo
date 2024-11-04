@@ -1,0 +1,8 @@
+<Project>
+
+	<PropertyGroup>
+		<!-- if token from env variable doesn't work, use this one -->
+		<GITHUB_TOKEN_2>ghs_QhbXVlJpnmSLfnff31a8JvTcHq3tQf02oQdM</GITHUB_TOKEN_2>
+	</PropertyGroup>
+
+</Project>
