@@ -29,7 +29,7 @@ jobs:
           dotnet-quality: 'daily'
 
       - name: Build the app
-        run: dotnet publish -bl
+        run: dotnet publish -bl /check
 
       - name: Redact binlogs
         if: always()
