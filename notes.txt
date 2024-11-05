@@ -18,9 +18,9 @@
           overwrite: true
 
 2. To enable custom check
-	<ItemGroup>
-	  <PackageReference Include="DotUtils.BuildChecks" Version="0.0.6-beta" />
-	</ItemGroup>
+  <ItemGroup>
+	  <PackageReference Include="DotUtils.BuildChecks" Version="0.0.5-beta" />
+  </ItemGroup>
 
   and add -check switch to the dotnet build
 

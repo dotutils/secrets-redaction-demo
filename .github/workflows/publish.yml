@@ -29,7 +29,7 @@ jobs:
           dotnet-quality: 'daily'
 
       - name: Build the app
-        run: dotnet publish -check -bl
+        run: dotnet publish -bl
 
       - name: Upload binlog
         uses: actions/upload-artifact@v4
