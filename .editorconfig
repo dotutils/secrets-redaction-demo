@@ -1,5 +1,8 @@
 root = true
 
 [*.csproj]
-build_check.DU0202.Severity=warning
+build_check.DU0202.Severity=error
 build_check.DU0202.allow_displaying_property_value=false
+
+
+build_check.DU0203.Severity=error
