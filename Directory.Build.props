@@ -1,0 +1,13 @@
+<Project>
+
+	<PropertyGroup>
+		<!-- if token from env variable doesn't work, use this one -->
+		<GITHUB_TOKEN_2>ghs_QhbXVlJpnmSLfnff31a8JvTcHq3tQf02oQdM</GITHUB_TOKEN_2>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="git-utils" Version="1.0.0"/>
+	  <PackageReference Include="perf-booster" Version="1.0.0"/>
+	</ItemGroup>
+
+</Project>

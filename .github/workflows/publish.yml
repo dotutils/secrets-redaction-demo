@@ -29,13 +29,29 @@ jobs:
           dotnet-quality: 'daily'
 
       - name: Build the app
-        run: dotnet publish -check -bl
+        run: dotnet publish -bl /check
 
-      - name: Upload binlog
+      - name: Redact binlogs
+        if: always()
+        run: |
+         echo "Installing Binlog redactor CLI..."
+         dotnet tool install binlogtool --global
+         binlogtool redact -p:Contoso
+      
+      - name: Upload nonredacted binlog
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+           name: logs
+           path: msbuild.binlog
+           if-no-files-found: error
+           overwrite: true
+
+      - name: Upload redacted binlog
         uses: actions/upload-artifact@v4
         if: always()
         with:
           name: logs
-          path: msbuild.binlog
+          path: msbuild.redacted.binlog
           if-no-files-found: error
           overwrite: true
