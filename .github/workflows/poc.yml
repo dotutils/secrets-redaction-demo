@@ -1,0 +1,47 @@
+name: Run Copilot Cli PoC
+
+on:
+  workflow_dispatch:
+
+env:
+    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+jobs:
+  run-poc:
+    runs-on: ubuntu-latest
+
+    permissions:
+      pull-requests: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Install GitHub Copilot CLI
+        run: |
+          npm install -g @github/copilot || {
+            echo "Error: Failed to install GitHub Copilot CLI"
+            exit 1
+          }
+
+      - name: Query Copilot
+        id: analyze
+        run: |
+          if ! copilot -p "How many C# files are in this repository?" > analysis.txt 2>copilot-error.log; then
+            echo "Error: Copilot CLI failed"
+            echo "Error details:"
+            cat copilot-error.log
+            exit 1
+          fi
+
+          if [ ! -s analysis.txt ]; then
+            echo "Error: Copilot produced no output"
+            exit 1
+          fi
+
+          cat analysis.txt
