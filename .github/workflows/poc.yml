@@ -45,3 +45,5 @@ jobs:
           fi
 
           cat analysis.txt
+        env:
+          COPILOT_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
